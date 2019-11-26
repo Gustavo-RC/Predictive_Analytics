@@ -15,7 +15,7 @@ que resulta numa curva num formato de um S.
 
 O teste de acurácia foi realizado sobre uma amostra de 30% da base de dados, comparando os dados previstos com os reais.
 
-O módulo 'Inference' deve classificar uma nova instância
+O módulo 'Inference' deve classificar uma nova instância inserida no 'new-instance'
 
 A linguagem de programação Python foi escolhida, porque é uma linguagem de uso geral que pode fazer 
 praticamente qualquer coisa como: coleta de dados, engenharia de dados, análise e muito mais. É mais simples de dominar, 
