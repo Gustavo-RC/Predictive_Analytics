@@ -5,6 +5,7 @@ import numpy as np
 #Analise de dados
 import pandas as pd
 #Efetuar a regressão logistica
+from sklearn.externals import joblib
 from sklearn.linear_model import LogisticRegression
 #Gerar a matriz de confusao e o relatório de classificacao
 from sklearn.metrics import confusion_matrix, classification_report
@@ -133,6 +134,12 @@ x_treino, x_teste = x_treino.drop(['y'], axis=1), x_teste.drop(['y'], axis=1)
 
 #Ajusta um modelo aos dados de treinamento
 modelo = LogisticRegression(solver='lbfgs', multi_class='auto').fit(x_treino, y_treino)
+
+#Nome do modelo em disco
+filename = 'modelo_finalizado.sav'
+
+#Salva o modelo em disco
+joblib.dump(modelo, filename)
 
 #Previsao dos valores
 previsao = modelo.predict(x_teste)
