@@ -53,7 +53,6 @@ banco.loc[banco['job'] == 'services', 'job'] = 'blue-collar'
 
 #Exploracao dos dados
 banco.describe()
-
 #Histograma dos valores y
 pd.DataFrame.hist(banco, column='y', bins=10)
 cont = 0
