@@ -1,7 +1,7 @@
 #Bibliotecas necessarias para ler o conjunto de dados
 
 #Realizar calculos numericos em array
-import numpy as np
+import Induction
 #Analise de dados
 import pandas as pd
 #Efetuar a regressão logistica
@@ -58,12 +58,9 @@ filename = 'modelo_finalizado.sav'
 #Carrega o modelo do disco
 modelo_carregado = joblib.load(filename)
 
-previsao = modelo_carregado.predict(processado)
+#Efetua a previsao
+previsao = modelo_carregado.predict_proba(processado)
 
-cont = 0
-#Compara os valores previstos com os valores reais e conta os erros
-for i, j in zip(previsao, 'y'):
-    if i == j:
-        cont += 1
 #Taxa de sucesso
-print("Possibilidade de Contratacao:", (cont / len(processado)) * 100, "%")
+print("Probabilidade de Contratacao:", (previsao[0,1]) * 100, "%")
+print("Probabilidade de Não Contratacao:", (previsao[0,0]) * 100, "%")
